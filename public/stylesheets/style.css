@@ -1,0 +1,38 @@
+input.ng-invalid {
+  border: 1px solid red;
+}
+
+.errorDialog {
+    display: none;
+}
+
+.input-group {
+    float: left;
+    margin: 2px;
+}
+
+button[class*=Edit] {
+    display: none;
+}
+
+button.btn.input[class*=Add] {
+    margin-left: 25px;
+}
+
+.panel-body.fieldset {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.panel[data-state=closed] {
+    display: none;
+}
+
+button.pull-right {
+    margin: -7px;
+}
+
+button + span.pull-right {
+    display: inline-block;
+    margin: 0px 5px;
+}

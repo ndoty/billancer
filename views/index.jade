@@ -26,14 +26,14 @@ block app
 
         .container-fluid(ng-view)
             script(id="index" type="text/ng-template")
-                div.panel.panel-default
+                .panel.panel-default
                     .panel-heading Welcome
                     .panel-body
                         p Left in Bank
                             span.leftInBank.number &nbsp;&nbsp;&nbsp;${{ leftInBank }}
 
             script(id="/transactions" type="text/ng-template")
-                div.panel.panel-default(ng-controller="TransactionsCtrl")
+                .panel.panel-default
                     .panel-heading Transactions List
                         button.btn.btn-default.pull-right.showAddFields(ng-click="showAddFields($event, '')") Add Transaction
                     .panel.panel-default(data-state="closed")
@@ -84,7 +84,7 @@ block app
                                         button.btn.btn-danger(ng-click="removeTransaction(transaction)") Remove
 
             script(id="/bills" type="text/ng-template")
-                div.panel.panel-default(ng-controller="BillsCtrl")
+                .panel.panel-default
                     .panel-heading Bills List
                         button.btn.btn-default.pull-right.showAddFields(ng-click="showAddFields($event, '')") Add Bill
                     .panel.panel-default(data-state="closed")
@@ -136,167 +136,175 @@ block app
                                             button.btn.btn-danger(ng-click="removeBill(bill)") Remove
 
             script(id="/cards" type="text/ng-template")
-                div(ng-controller="CardsCtrl")
-                    .panel.panel-default
-                        .panel-heading Credit Card List
-                            button.btn.btn-default.pull-right.showAddFields.credit(ng-click="showAddFields($event, '.credit')") Add Credit Card
+                .panel.panel-default
+                    .panel-heading Credit Card List
+                        button.btn.btn-default.pull-right.showAddFields.credit(ng-click="showAddFields($event, '.credit')") Add Credit Card
 
-                        .panel.panel-default.credit(data-state="closed")
-                            .panel-body.fieldset
-                                fieldset.creditCards
-                                    .input-group
-                                        input.creditCardData.add(type="text" ng-model="description" data-validation="description" placeholder="Description" data-label="Description")
-                                    .alert.alert-danger.alert-dismissible.errorDialog(role="alert")
-                                        button.close(type="button" data-dismiss="alert")
-                                            span(aria-hidden="true") &times;
-                                            span.sr-only Close
-                                        p Please enter something as this field is required.
-                                    .input-group
-                                        input.creditCardData.add(type="text" ng-model="last4" ng-pattern="/[0-9]{4}/" data-validation="last4" placeholder="Last 4 Digits" data-label="Last 4 Digits")
-                                    .alert.alert-danger.alert-dismissible.errorDialog(role="alert")
-                                        button.close(type="button" data-dismiss="alert")
-                                            span(aria-hidden="true") &times;
-                                            span.sr-only Close
-                                        p Please enter 4 numbers only.
-                                    .input-group
-                                        input.creditCardData.add(type="text" ng-model="balance" data-validation="money" placeholder="Balance" data-label="Balance")
-                                    .alert.alert-danger.alert-dismissible.errorDialog(role="alert")
-                                        button.close(type="button" data-dismiss="alert")
-                                            span(aria-hidden="true") &times;
-                                            span.sr-only Close
-                                        p Please enter currency like $1.00 or 1.00 or 1.
-                                    .input-group
-                                        input.creditCardData.add(type="text" ng-model="minPayment" data-validation="money" placeholder="Minimum Payment" data-label="Minimum Payment")
-                                    .alert.alert-danger.alert-dismissible.errorDialog(role="alert")
-                                        button.close(type="button" data-dismiss="alert")
-                                            span(aria-hidden="true") &times;
-                                            span.sr-only Close
-                                        p Please enter currency like $1.00 or 1.00 or 1.
-                                    .input-group
-                                        input.creditCardData.add(type="text" ng-model="due" placeholder="Due" data-label="Due")
-                                    .alert.alert-danger.alert-dismissible.errorDialog(role="alert")
-                                        button.close(type="button" data-dismiss="alert")
-                                            span(aria-hidden="true") &times;
-                                            span.sr-only Close
-                                        p Please enter a valid date like mm/dd/yyyy or m/d/yy or m/d/yyyy.
-                                    button.btn.btn-success.cardAdd.input(ng-click="addCreditCard()") Add
+                    .panel.panel-default.credit(data-state="closed")
+                        .panel-body.fieldset
+                            fieldset.creditCards
+                                .input-group
+                                    input.creditCardData.add(type="text" ng-model="description" data-validation="description" placeholder="Description" data-label="Description")
+                                .alert.alert-danger.alert-dismissible.errorDialog(role="alert")
+                                    button.close(type="button" data-dismiss="alert")
+                                        span(aria-hidden="true") &times;
+                                        span.sr-only Close
+                                    p Please enter something as this field is required.
+                                .input-group
+                                    input.creditCardData.add(type="text" ng-model="last4" ng-pattern="/[0-9]{4}/" data-validation="last4" placeholder="Last 4 Digits" data-label="Last 4 Digits")
+                                .alert.alert-danger.alert-dismissible.errorDialog(role="alert")
+                                    button.close(type="button" data-dismiss="alert")
+                                        span(aria-hidden="true") &times;
+                                        span.sr-only Close
+                                    p Please enter 4 numbers only.
+                                .input-group
+                                    input.creditCardData.add(type="text" ng-model="balance" data-validation="money" placeholder="Balance" data-label="Balance")
+                                .alert.alert-danger.alert-dismissible.errorDialog(role="alert")
+                                    button.close(type="button" data-dismiss="alert")
+                                        span(aria-hidden="true") &times;
+                                        span.sr-only Close
+                                    p Please enter currency like $1.00 or 1.00 or 1.
+                                .input-group
+                                    input.creditCardData.add(type="text" ng-model="minPayment" data-validation="money" placeholder="Minimum Payment" data-label="Minimum Payment")
+                                .alert.alert-danger.alert-dismissible.errorDialog(role="alert")
+                                    button.close(type="button" data-dismiss="alert")
+                                        span(aria-hidden="true") &times;
+                                        span.sr-only Close
+                                    p Please enter currency like $1.00 or 1.00 or 1.
+                                .input-group
+                                    input.creditCardData.add(type="text" ng-model="due" placeholder="Due" data-label="Due")
+                                .alert.alert-danger.alert-dismissible.errorDialog(role="alert")
+                                    button.close(type="button" data-dismiss="alert")
+                                        span(aria-hidden="true") &times;
+                                        span.sr-only Close
+                                    p Please enter a valid date like mm/dd/yyyy or m/d/yy or m/d/yyyy.
+                                button.btn.btn-success.cardAdd.input(ng-click="addCreditCard()") Add
 
-                        .panel-body
-                            table.creditCards.table
-                                tbody
-                                    tr(ng-repeat="card in creditCards")
-                                        td
-                                            span {{ card.description }}
-                                            .input-group.edit.hide
-                                                input.creditCardData(type="text" ng-model="description" data-validation="description" placeholder="Description" data-label="Description")
-                                            .alert.alert-danger.alert-dismissible.errorDialog(role="alert")
-                                                button.close(type="button" data-dismiss="alert")
-                                                    span(aria-hidden="true") &times;
-                                                    span.sr-only Close
-                                                p Please enter something as this field is required.
-                                        td
-                                            span {{ card.last4 }}
-                                            .input-group.edit.hide
-                                                input.creditCardData(type="text" ng-model="last4" ng-pattern="/[0-9]{4}/" data-validation="last4" placeholder="Last 4 Digits" data-label="Last 4 Digits")
-                                            .alert.alert-danger.alert-dismissible.errorDialog(role="alert")
-                                                button.close(type="button" data-dismiss="alert")
-                                                    span(aria-hidden="true") &times;
-                                                    span.sr-only Close
-                                                p Please enter 4 numbers only.
-                                        td
-                                            span {{ card.balance }}
-                                            .input-group.edit.hide
-                                                input.creditCardData(type="text" ng-model="balance" data-validation="money" placeholder="Balance" data-label="Balance")
-                                            .alert.alert-danger.alert-dismissible.errorDialog(role="alert")
-                                                button.close(type="button" data-dismiss="alert")
-                                                    span(aria-hidden="true") &times;
-                                                    span.sr-only Close
-                                                p Please enter currency like $1.00 or 1.00 or 1.
-                                        td
-                                            span {{ card.minPayment }}
-                                            .input-group.edit.hide
-                                                input.creditCardData(type="text" ng-model="minPayment" data-validation="money" placeholder="Minimum Payment" data-label="Minimum Payment")
-                                            .alert.alert-danger.alert-dismissible.errorDialog(role="alert")
-                                                button.close(type="button" data-dismiss="alert")
-                                                    span(aria-hidden="true") &times;
-                                                    span.sr-only Close
-                                                p Please enter currency like $1.00 or 1.00 or 1.
-                                        td
-                                            span {{ card.due }}
-                                            .input-group.edit.hide
-                                                input.creditCardData(type="text" ng-model="due" placeholder="Due" data-label="Due")
-                                            .alert.alert-danger.alert-dismissible.errorDialog(role="alert")
-                                                button.close(type="button" data-dismiss="alert")
-                                                    span(aria-hidden="true") &times;
-                                                    span.sr-only Close
-                                                p Please enter a valid date like mm/dd/yyyy or m/d/yy or m/d/yyyy.
-                                        td
-                                            button.btn.btn-info.edit(ng-click="editCreditCard($event, card)") Edit
-                                            button.btn.btn-info.update.hide(ng-click="updateCreditCard($event, card)") Update
-                                        td
-                                            button.btn.btn-danger.remove(ng-click="removeCreditCard(card)") Remove
-                                            button.btn.btn-danger.cancel.hide(ng-click="cancelEditCreditCard($event)") Cancel
+                    .panel-body
+                        table.creditCards.table
+                            tbody
+                                tr(ng-repeat="card in creditCards")
+                                    td
+                                        span {{ card.description }}
+                                        .input-group.edit.hide
+                                            input.creditCardData(type="text" ng-model="description" data-validation="description" placeholder="Description" data-label="Description")
+                                        .alert.alert-danger.alert-dismissible.errorDialog(role="alert")
+                                            button.close(type="button" data-dismiss="alert")
+                                                span(aria-hidden="true") &times;
+                                                span.sr-only Close
+                                            p Please enter something as this field is required.
+                                    td
+                                        span {{ card.last4 }}
+                                        .input-group.edit.hide
+                                            input.creditCardData(type="text" ng-model="last4" ng-pattern="/[0-9]{4}/" data-validation="last4" placeholder="Last 4 Digits" data-label="Last 4 Digits")
+                                        .alert.alert-danger.alert-dismissible.errorDialog(role="alert")
+                                            button.close(type="button" data-dismiss="alert")
+                                                span(aria-hidden="true") &times;
+                                                span.sr-only Close
+                                            p Please enter 4 numbers only.
+                                    td
+                                        span {{ card.balance }}
+                                        .input-group.edit.hide
+                                            input.creditCardData(type="text" ng-model="balance" data-validation="money" placeholder="Balance" data-label="Balance")
+                                        .alert.alert-danger.alert-dismissible.errorDialog(role="alert")
+                                            button.close(type="button" data-dismiss="alert")
+                                                span(aria-hidden="true") &times;
+                                                span.sr-only Close
+                                            p Please enter currency like $1.00 or 1.00 or 1.
+                                    td
+                                        span {{ card.minPayment }}
+                                        .input-group.edit.hide
+                                            input.creditCardData(type="text" ng-model="minPayment" data-validation="money" placeholder="Minimum Payment" data-label="Minimum Payment")
+                                        .alert.alert-danger.alert-dismissible.errorDialog(role="alert")
+                                            button.close(type="button" data-dismiss="alert")
+                                                span(aria-hidden="true") &times;
+                                                span.sr-only Close
+                                            p Please enter currency like $1.00 or 1.00 or 1.
+                                    td
+                                        span {{ card.due }}
+                                        .input-group.edit.hide
+                                            input.creditCardData(type="text" ng-model="due" placeholder="Due" data-label="Due")
+                                        .alert.alert-danger.alert-dismissible.errorDialog(role="alert")
+                                            button.close(type="button" data-dismiss="alert")
+                                                span(aria-hidden="true") &times;
+                                                span.sr-only Close
+                                            p Please enter a valid date like mm/dd/yyyy or m/d/yy or m/d/yyyy.
+                                    td
+                                        button.btn.btn-info.edit(ng-click="editCreditCard($event, card)") Edit
+                                        button.btn.btn-info.update.hide(ng-click="updateCreditCard($event, card)") Update
+                                    td
+                                        button.btn.btn-danger.remove(ng-click="removeCreditCard(card)") Remove
+                                        button.btn.btn-danger.cancel.hide(ng-click="cancelEditCreditCard($event)") Cancel
 
 
-                    .panel.panel-default
-                        .panel-heading Debit Card List
-                            button.btn.btn-default.pull-right.showAddFields.debit(ng-click="showAddFields($event, '.debit')") Add Debit Card
+                .panel.panel-default
+                    .panel-heading Debit Card List
+                        button.btn.btn-default.pull-right.showAddFields.debit(ng-click="showAddFields($event, '.debit')") Add Debit Card
 
-                        .panel.panel-default.debit(data-state="closed")
-                            .panel-body.fieldset
-                                fieldset.debitCards
-                                    .input-group
-                                        input.debitCardData.add(type="text" ng-model="description" data-validation="description" placeholder="Description" data-label="Description")
-                                    .alert.alert-danger.alert-dismissible.errorDialog(role="alert")
-                                        button.close(type="button" data-dismiss="alert")
-                                            span(aria-hidden="true") &times;
-                                            span.sr-only Close
-                                        p Please enter something as this field is required.
-                                    .input-group
-                                        input.debitCardData.add(type="text" ng-model="last4" data-validation="last4" placeholder="Last 4 Digits" data-label="Last 4 Digits")
-                                    .alert.alert-danger.alert-dismissible.errorDialog(role="alert")
-                                        button.close(type="button" data-dismiss="alert")
-                                            span(aria-hidden="true") &times;
-                                            span.sr-only Close
-                                        p Please enter 4 numbers only.
-                                    .input-group
-                                        input.debitCardData.add(type="text" ng-model="expires" placeholder="Expires" data-label="Expires")
-                                    .alert.alert-danger.alert-dismissible.errorDialog(role="alert")
-                                        button.close(type="button" data-dismiss="alert")
-                                            span(aria-hidden="true") &times;
-                                            span.sr-only Close
-                                        p Please enter a valid date like mm/dd/yyyy or m/d/yy or m/d/yyyy.
-                                    button.btn.btn-success.cardAdd.input(ng-click="addDebitCard()") Add
+                    .panel.panel-default.debit(data-state="closed")
+                        .panel-body.fieldset
+                            fieldset.debitCards
+                                .input-group
+                                    input.debitCardData.add(type="text" ng-model="description" data-validation="description" placeholder="Description" data-label="Description")
+                                .alert.alert-danger.alert-dismissible.errorDialog(role="alert")
+                                    button.close(type="button" data-dismiss="alert")
+                                        span(aria-hidden="true") &times;
+                                        span.sr-only Close
+                                    p Please enter something as this field is required.
+                                .input-group
+                                    input.debitCardData.add(type="text" ng-model="last4" data-validation="last4" placeholder="Last 4 Digits" data-label="Last 4 Digits")
+                                .alert.alert-danger.alert-dismissible.errorDialog(role="alert")
+                                    button.close(type="button" data-dismiss="alert")
+                                        span(aria-hidden="true") &times;
+                                        span.sr-only Close
+                                    p Please enter 4 numbers only.
+                                .input-group
+                                    input.debitCardData.add(type="text" ng-model="expires" placeholder="Expires" data-label="Expires")
+                                .alert.alert-danger.alert-dismissible.errorDialog(role="alert")
+                                    button.close(type="button" data-dismiss="alert")
+                                        span(aria-hidden="true") &times;
+                                        span.sr-only Close
+                                    p Please enter a valid date like mm/dd/yyyy or m/d/yy or m/d/yyyy.
+                                button.btn.btn-success.cardAdd.input(ng-click="addDebitCard()") Add
 
-                        .panel-body
-                            table.debitCards.table
-                                tbody
-                                    tr(ng-repeat="card in debitCards")
-                                        td
-                                            span {{ card.description }}
-                                            .input-group.edit.hide
-                                                input.debitCardData(type="text" ng-model="description" data-validation="description" placeholder="Description" data-label="Description")
-                                            .alert.alert-danger.alert-dismissible.errorDialog.edit(role="alert")
-                                                button.close(type="button" data-dismiss="alert")
-                                                    span(aria-hidden="true") &times;
-                                                    span.sr-only Close
-                                                p Please enter something as this field is required.
-                                        td
-                                            span {{ card.last4 }}
-                                            .input-group.edit.hide
-                                                input.debitCardData(type="text" ng-model="last4" data-validation="last4" placeholder="Last 4 Digits" data-label="Last 4 Digits")
-                                            .alert.alert-danger.alert-dismissible.errorDialog.edit(role="alert")
-                                                button.close(type="button" data-dismiss="alert")
-                                                    span(aria-hidden="true") &times;
-                                                    span.sr-only Close
-                                                p Please enter 4 numbers only.
-                                        td
-                                            span {{ card.expires }}
-                                            .input-group.edit.hide
-                                                input.debitCardData(type="text" ng-model="expires" placeholder="Expires" data-label="Expires")
-                                            .alert.alert-danger.alert-dismissible.errorDialog.edit(role="alert")
-                                                button.close(type="button" data-dismiss="alert")
-                                                    span(aria-hidden="true") &times;
+                    .panel-body
+                        table.debitCards.table
+                            tbody
+                                tr(ng-repeat="card in debitCards")
+                                    td
+                                        span {{ card.description }}
+                                        .input-group.edit.hide
+                                            input.debitCardData(type="text" ng-model="description" data-validation="description" placeholder="Description" data-label="Description")
+                                        .alert.alert-danger.alert-dismissible.errorDialog.edit(role="alert")
+                                            button.close(type="button" data-dismiss="alert")
+                                                span(aria-hidden="true") &times;
+                                                span.sr-only Close
+                                            p Please enter something as this field is required.
+                                    td
+                                        span {{ card.last4 }}
+                                        .input-group.edit.hide
+                                            input.debitCardData(type="text" ng-model="last4" data-validation="last4" placeholder="Last 4 Digits" data-label="Last 4 Digits")
+                                        .alert.alert-danger.alert-dismissible.errorDialog.edit(role="alert")
+                                            button.close(type="button" data-dismiss="alert")
+                                                span(aria-hidden="true") &times;
+                                                span.sr-only Close
+                                            p Please enter 4 numbers only.
+                                    td
+                                        span {{ card.expires }}
+                                        .input-group.edit.hide
+                                            input.debitCardData(type="text" ng-model="expires" placeholder="Expires" data-label="Expires")
+                                        .alert.alert-danger.alert-dismissible.errorDialog.edit(role="alert")
+                                            button.close(type="button" data-dismiss="alert")
+                                                span(aria-hidden="true") &times;
+                                                span.sr-only Close
+                                            p Please enter a valid date like mm/dd/yyyy or m/d/yy or m/d/yyyy.
+                                    td
+                                        button.btn.btn-info.edit(ng-click="editDebitCard($event, card)") Edit
+                                        button.btn.btn-info.update.hide(ng-click="updateDebitCard($event, card)") Update
+                                    td
+                                        button.btn.btn-danger.remove(ng-click="removeDebitCard(card)") Remove
+                                        button.btn.btn-danger.cancel.hide(ng-click="cancelEditDebitCard($event)") Cancel
+true") &times;
                                                     span.sr-only Close
                                                 p Please enter a valid date like mm/dd/yyyy or m/d/yy or m/d/yyyy.
                                         td
